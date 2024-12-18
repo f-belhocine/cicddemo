@@ -18,5 +18,23 @@
 
             Assert.AreEqual(expected, actual);
         }
+
+
+
+        [TestMethod()]
+        public void SubstractTest()
+        {
+            CalculatorController calculatorController = new CalculatorController();
+
+            int a = 10;
+            int b = 20;
+
+            int expected = -10;
+
+
+            var actual = calculatorController.Substract(a, b);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
