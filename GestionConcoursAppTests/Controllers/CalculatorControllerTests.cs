@@ -36,5 +36,21 @@
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void MultiplyTest()
+        {
+            CalculatorController calculatorController = new CalculatorController();
+
+            int a = 10;
+            int b = 20;
+
+            int expected = 200;
+
+
+            var actual = calculatorController.Multiply(a, b);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
