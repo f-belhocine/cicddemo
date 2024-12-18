@@ -12,5 +12,12 @@ namespace GestionConcoursApp.Controllers
         {
             return a + b;
         }
+
+        [HttpGet]
+        [Route("substract")]
+        public int Substract(int a, int b)
+        {
+            return a - b;
+        }
     }
 }
