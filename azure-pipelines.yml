@@ -18,27 +18,33 @@ jobs:
   - job: 
     steps:
       - task: DotNetCoreCLI@2
+        displayName: "Restore"
         inputs:
           command: 'restore'
           projects: '**/*.csproj'
           feedsToUse: 'select'
       - task: DotNetCoreCLI@2
+        displayName: "Build"
         inputs:
           command: 'build'
           configuration: $(buildConfiguration)
           projects: '**/*.csproj'
   
       - task: DotNetCoreCLI@2
+        displayName: "Running Tests"
         inputs:
           command: 'test'
           projects: '**/*Tests.csproj'
       
       - task: DotNetCoreCLI@2
+        displayName: "Publish App"
         inputs:
           command: 'publish'
+          arguments: --output $(Build.ArtifactStagingDirectory)
           publishWebProjects: true
 
       - task: PublishBuildArtifacts@1
+        displayName: "Upload Articfact"
         inputs:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
           ArtifactName: 'dgsn'
